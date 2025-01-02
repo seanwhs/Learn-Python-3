@@ -91,14 +91,25 @@ def greet(name, greeting="Hello"):
 greet("Alice")  # Uses default greeting
 greet("Bob", "Hi")  # Overrides default greeting
 
-# Sample 4: Variable-Length Positional Arguments (*args)
+# Sample 4a: Variable-Length Positional Arguments (*args)
 def sum_numbers(*args):
     return sum(args)
 
 print(sum_numbers(1, 2, 3))  # Output: 6
 print(sum_numbers(10, 20, 30, 40))  # Output: 100
 
-# Sample 5: Variable-Length Keyword Arguments (**kwargs)
+# Sample 4b: Variable-Length Positional Arguments (*args)
+def greet(*names):
+    for name in names:
+        print(f"Hello {name}")
+
+greet("Alice", "Bob", "Charlie")  
+# Output:
+# Hello Alice
+# Hello Bob
+# Hello Charlie
+
+# Sample 5a: Variable-Length Keyword Arguments (**kwargs)
 def print_info(**kwargs):
     for key, value in kwargs.items():
         print(f"{key}: {value}")
@@ -108,6 +119,16 @@ print_info(name="Alice", age=30, city="New York")
 # name: Alice
 # age: 30
 # city: New York
+
+# Sample 5b: Variable-Length Keyword Arguments (**kwargs)
+def greet_kwargs(**info):
+    for key, value in info.items():
+        print(f"{key}: {value}")
+
+greet_kwargs(name="Alice", age=25)  
+# Output:
+# name: Alice
+# age: 25
 
 # Sample 6: Mixing Different Parameters
 def profile(name, age=30, *hobbies, **extra_info):
